@@ -1,6 +1,11 @@
 :root{
       --bg-color1:#212529;
       --bg-color2:#2a2b2b;
+      --aqi-1:#d4e157;
+      --aqi-2:#ffee58;
+      --aqi-3:#ffca28;
+      --aqi-4:#ff7043;
+      --aqi-5:#ef5350;
 }
 
 *{
@@ -53,5 +58,95 @@ body{
             border-radius: 16px;
             border-style: none;
             cursor: pointer;
+      }
+}
+
+/* left-weather-card */
+.cards{
+      background-color: var(--bg-color2);
+      border-radius: 30px;
+      padding: 15px;
+      margin-bottom:15px;
+      & p{
+            font-size: 16px;
+            color: #999;
+      }
+      & h2{
+            font-size: 32px;
+            font-weight: 500;
+      }
+}
+
+.weather-data{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      & .weather-left{
+            grid-column: span 1;
+            & .weather-details{
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  & h2{
+                        margin: 7px 0;
+                  }
+                  & p{
+                        color: #fff;
+                  }
+            }
+            & .weather-footer, p{
+                  font-size: 14px;
+                  margin-bottom: 12px;
+            }
+            & .forecast-item{
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  place-items: center;
+                  margin-bottom: 15px;
+                  & .icon-weather{
+                        display: flex;
+                        align-items: center;
+                  }
+            }
+      }
+      & .weather-right{
+            grid-column: span 3;
+            & h2{
+                  font-weight: bolder;
+                  margin-bottom: 10px;
+            }
+            & .highlights{
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  column-gap: 15px;
+                  & .card-header{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 10px;
+                        & .air-index{
+                              color: #000;
+                              padding: 5px 10px;
+                              border-radius: 15px;                              
+                              border-radius: 16px;
+                        }
+                        & .aqi-1{
+                              background-color: var(--aqi-1);
+                        }
+                        & .aqi-2{
+                              background-color: var(--aqi-2);
+                        }
+                        & .aqi-3{
+                              background-color: var(--aqi-3);
+                        }
+                        & .aqi-4{
+                              background-color: var(--aqi-4);
+                        }
+                        & .aqi-5{
+                              background-color: var(--aqi-5);
+                        }
+                  }
+            }
+
+
       }
 }

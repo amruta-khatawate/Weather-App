@@ -33,12 +33,25 @@ body{
             font-size: 16px;
             border-radius: 16px;
             border-style: none;
+            color: #fff;
+            &:focus{
+                  outline: none;
+            }
       }
       & #searchBtn{
             background-color:white;
             padding: 12px;
             font-size: 16px;
+            border-radius: 25px;
+            border-style: none;
+            cursor: pointer;
+      }
+      & #locationBtn{
+            background-color:rgb(226, 98, 51);
+            padding: 12px;
+            font-size: 16px;
             border-radius: 16px;
             border-style: none;
+            cursor: pointer;
       }
 }

@@ -162,8 +162,8 @@ body{
                        }
                   }
                   & .sunrise-sunset{
-                        display: flex;
-                        justify-content:space-around;
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
                         place-items: center;
                         & .item{
                               display: flex;
@@ -171,6 +171,11 @@ body{
                         & .sunrise, .sunset{
                               margin-left: 30px;
                         }
+                  }
+                  & .card-items{
+                        display: flex;
+                        justify-content: space-between;
+                        place-items: center;
                   }
 
             }

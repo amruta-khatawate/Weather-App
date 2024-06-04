@@ -149,6 +149,30 @@ body{
                               background-color: var(--aqi-5);
                         }
                   }
+                  & .air-indices{
+                        display: grid;
+                       grid-template-columns: repeat(4, 1fr);
+                       place-items: center;
+                       & p{
+                        text-align: center;
+                        margin-bottom: 0;
+                       }
+                       & h2{
+                        margin-bottom: 15px;
+                       }
+                  }
+                  & .sunrise-sunset{
+                        display: flex;
+                        justify-content:space-around;
+                        place-items: center;
+                        & .item{
+                              display: flex;
+                        }
+                        & .sunrise, .sunset{
+                              margin-left: 30px;
+                        }
+                  }
+
             }
 
 

@@ -119,6 +119,10 @@ body{
                   display: grid;
                   grid-template-columns: repeat(4, 1fr);
                   column-gap: 15px;
+                  & .cards:nth-of-type(1),
+                  & .cards:nth-of-type(2){
+                        grid-column:span 2;
+                  }
                   & .card-header{
                         display: flex;
                         justify-content: space-between;

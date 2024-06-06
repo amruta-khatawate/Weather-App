@@ -180,6 +180,9 @@ body{
                         display: flex;
                         justify-content: space-between;
                         place-items: center;
+                        & i{
+                              font-size: 30px;  
+                          }
                   }
 
             }

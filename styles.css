@@ -112,6 +112,9 @@ body{
 
       & .weather-right{
             grid-column: span 3;
+            & i{
+                font-size: 45px;  
+            }
             & h2{
                   font-weight: bolder;
                   margin-bottom: 10px;

@@ -207,6 +207,9 @@ body{
                   grid-column: span 2;
                   & .highlights{
                         grid-template-columns: repeat(3, 1fr);
+                        & .cards:nth-of-type(1){
+                              grid-column: span 3;
+                        }
                   }
                   & .bottom-cards{
                         grid-template-columns: repeat(6, 1fr);

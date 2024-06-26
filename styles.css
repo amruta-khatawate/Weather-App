@@ -222,5 +222,15 @@ body{
 @media (max-width: 1040px) {
       .weather-data{
             grid-template-columns: repeat(2, 1fr);
+            & .weather-right{
+                  grid-column: span 1;
+                  & .highlights{
+                        grid-template-columns:repeat(2, 1fr) ;
+                        & .cards:nth-of-type(1){
+                              grid-column: span 2;
+                        }
+                  }
+                  & 
+            }
       }
 }

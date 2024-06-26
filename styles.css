@@ -218,3 +218,9 @@ body{
 
       }
 }
+
+@media (max-width: 1040px) {
+      .weather-data{
+            grid-template-columns: repeat(2, 1fr);
+      }
+}

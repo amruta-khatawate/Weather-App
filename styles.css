@@ -230,7 +230,9 @@ body{
                               grid-column: span 2;
                         }
                   }
-                  & 
+                  & .bottom-cards{
+                        grid-template-columns: repeat(4, 1fr);
+                  }
             }
       }
 }

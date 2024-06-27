@@ -240,6 +240,18 @@ body{
 @media (max-width: 850px) {
       & .weather-data{
             grid-template-columns: repeat(1, 1fr);
+      }  
+}
+
+@media (max-width: 660px) {
+      & .header{
+            flex-direction: column;
+            & .h2{
+                  margin-bottom: 8px;
+            }
+            & #city-input, #searchBtn, #locationBtn{
+                  width: 100%;
+                  margin-bottom: 10px;
+            }
       }
-      
 }

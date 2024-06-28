@@ -257,5 +257,31 @@ body{
 }
 
 @media (max-width:580px) {
-      .weather-data, .weather-right, .
+      .weather-data, .weather-right, .highlights, .bottom-cards{
+            grid-template-columns: repeat(4, 1fr);
+      }
+}
+
+@media (max-width: 850px) {
+      .weather-data{
+            grid-template-columns: 1fr;
+            & .weather-right .highlights{
+                  & .cards:nth-of-type(3),
+                  & .cards:nth-of-type(4),
+                  & .cards:nth-of-type(5),
+                  & .cards:nth-of-type(6),
+                  & .cards:nth-of-type(7){
+                        grid-column: span 1;
+                  }
+                  & .bottom-cards{
+                        grid-template-columns: repeat(5, 1fr);
+                  }
+            }
+      }
+}
+
+@media (max-width:350px) {
+      & #city-input, #searchBtn, #locationBtn{
+            width: 100%;
+      }
 }

@@ -283,6 +283,5 @@ body{
 @media (max-width: 480px) {
       .weather-data .weather-right .highlights .sunrise-sunset{
             grid-template-columns: 1fr;
-            
       }
 }

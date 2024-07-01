@@ -275,7 +275,7 @@ body{
                   }
                   & .bottom-cards{
                         grid-template-columns: repeat(5, 1fr);
-                        
+
                   }
             }
       }
@@ -284,5 +284,6 @@ body{
 @media (max-width: 480px) {
       .weather-data .weather-right .highlights .sunrise-sunset{
             grid-template-columns: 1fr;
+            
       }
 }

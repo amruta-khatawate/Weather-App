@@ -272,10 +272,11 @@ body{
                   & .cards:nth-of-type(6),
                   & .cards:nth-of-type(7){
                         grid-column: span 1;
+                        
                   }
                   & .bottom-cards{
                         grid-template-columns: repeat(5, 1fr);
-                        
+
                   }
             }
       }

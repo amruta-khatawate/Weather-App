@@ -271,7 +271,11 @@ body{
                   & .cards:nth-of-type(5),
                   & .cards:nth-of-type(6),
                   & .cards:nth-of-type(7){
+<<<<<<< HEAD
                         grid-column: span 1;
+=======
+                        grid-column: span 1;  
+>>>>>>> 191fe7f6ccc2c2ddcef8610434296f664c7d0157
                   }
                   & .bottom-cards{
                         grid-template-columns: repeat(5, 1fr);

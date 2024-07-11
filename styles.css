@@ -83,8 +83,12 @@ body{
       gap: 12px;
       & .weather-left{
             grid-column: span 1;
-            & .weather-details{
+            & .current-weather{
                   display: flex;
+                  justify-content: space-between;
+            }
+            & .weather-details{
+                  display: grid;
                   justify-content: space-between;
                   align-items: center;
                   & h2{

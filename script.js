@@ -63,7 +63,20 @@ function getWeatherDetails(name, lat, lon, country, state){
                         return uniqueForecastDays.push(forecastDate);
                   }
             });
-            console.log(fiveDaysForecast);
+            fiveDaysForecastCard.innerHTML = '';
+            for(i = 1; i < fiveDaysForecast.length; i++){
+                  let date = new Date(fiveDaysForecast[i].dt_txt);
+                  fiveDaysForecastCard.innerHTML += `
+                        <div class="forecast-item">
+                              <div class="icon-weather">
+                                    <img src="https://openweathermap.org/img/wn/${fiveDaysForecast[i].weather[0].icon}.png" width="40px" height="40px" alt="">
+                                    <span>${(fiveDaysForecast[i].main.temp - 273.15).toFixed(2)}&deg;C</span>
+                              </div>
+                              <p>${date.getDate()} ${months[date.getMonth()]}</p>
+                              <p>${days[date.getDay()]}</p>
+                        </div>
+                  `;
+            }
       }).catch(() => {
             alert('Failed to fetch weather forecast');
       });

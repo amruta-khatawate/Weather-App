@@ -3,7 +3,8 @@ searchBtn = document.getElementById('searchBtn'),
 api_key = 'e520c3bc89f9ac64050f2437a75fb22f',
 currentWeatherCard = document.querySelectorAll('.weather-left .cards')[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast'),
-aqiCard = document.querySelectorAll('.highlights .cards')[0];
+aqiCard = document.querySelectorAll('.highlights .cards')[0],
+aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
       let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
@@ -35,7 +36,48 @@ function getWeatherDetails(name, lat, lon, country, state){
       ];
 
       fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
-            console.log(data);
+            let {co, no, no2, o3, so2, pm2_5, pm10, nh3} = data.list[0].components;
+            aqiCard.innerHTML = `
+                  <div class="card-header">
+                        <p>Air Quality Index</p>
+                        <p class="air-index aqi-${data.list[0].main.aqi}">${aqiCard[data.list[0].main.aqi - 1]}</p>
+                  </div>
+                  <div class="air-indices">
+                        <i class="fa-solid fa-wind"></i>
+                        <div class="items">
+                            <p>PM2.5</p>
+                            <h2>${pm2_5}</h2>
+                        </div>
+                        <div class="items">
+                            <p>PM10</p>
+                            <h2>${pm10}</h2>
+                        </div>
+                        <div class="items">
+                            <p>SO2</p>
+                            <h2>${so2}</h2>
+                        </div>
+                        <div class="items">
+                            <p>CO</p>
+                            <h2>${co}</h2>
+                        </div>
+                        <div class="items">
+                            <p>NO</p>
+                            <h2>${no}</h2>
+                        </div>
+                        <div class="items">
+                            <p>NO2</p>
+                            <h2>${no2}</h2>
+                        </div>
+                        <div class="items">
+                            <p>NH3</p>
+                            <h2>${nh3}</h2>
+                        </div>
+                        <div class="items">
+                            <p>O3</p>
+                            <h2>${o3}</h2>
+                        </div>
+                  </div>
+            `;
       }).catch(() => {
             alert("Failed to fetch Air Wuality index");
       })

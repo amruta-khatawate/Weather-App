@@ -2,11 +2,14 @@ let cityInput = document.getElementById('city-input'),
 searchBtn = document.getElementById('searchBtn'),
 api_key = 'e520c3bc89f9ac64050f2437a75fb22f',
 currentWeatherCard = document.querySelectorAll('.weather-left .cards')[0],
-fiveDaysForecastCard = document.querySelector('.day-forecast');
+fiveDaysForecastCard = document.querySelector('.day-forecast'),
+aqiCard = document.querySelectorAll('.highlights .cards')[0];
 
 function getWeatherDetails(name, lat, lon, country, state){
       let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
       WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
+      AIR_POLLUTION_API_URL = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`,
+
       days = [
             'Sunday',
             'Monday',
@@ -30,6 +33,12 @@ function getWeatherDetails(name, lat, lon, country, state){
             'Nov',
             'Dec'
       ];
+
+      fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
+            console.log(data);
+      }).catch(() => {
+            alert("Failed to fetch Air Wuality index");
+      })
 
       fetch(WEATHER_API_URL).then(res => res.json()).then(data => {
             let date = new Date();

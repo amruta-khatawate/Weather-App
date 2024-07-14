@@ -4,6 +4,7 @@ api_key = 'e520c3bc89f9ac64050f2437a75fb22f',
 currentWeatherCard = document.querySelectorAll('.weather-left .cards')[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast'),
 aqiCard = document.querySelectorAll('.highlights .cards')[0],
+sunriseCard = document.querySelectorAll('.highlights .cards')[1],
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
@@ -40,7 +41,7 @@ function getWeatherDetails(name, lat, lon, country, state){
             aqiCard.innerHTML = `
                   <div class="card-header">
                         <p>Air Quality Index</p>
-                        <p class="air-index aqi-${data.list[0].main.aqi}">${aqiCard[data.list[0].main.aqi - 1]}</p>
+                        <p class="air-index aqi-${data.list[0].main.aqi}">${aqiList[data.list[0].main.aqi - 1]}</p>
                   </div>
                   <div class="air-indices">
                         <i class="fa-solid fa-wind"></i>
@@ -101,6 +102,36 @@ function getWeatherDetails(name, lat, lon, country, state){
                     <p><i class="fa-light fa-location-dot"></i> ${name}, ${country}</p>
                 </div>
             `;
+            let {sunrise, sunset} = data.sys,
+            {timezone} = data,
+            sRiseTime = moment.utc(sunrise, 'x').add(timezone, 'seconds').format('hh:mm A'),
+            sSetTime = moment.utc(sunset, 'x').add(timezone, 'seconds').format('hh:mm A');
+            sunriseCard.innerHTML = `
+                  <div class="card-header">
+                        <p>Sunrise & Sunset</p>
+                  </div>
+                  <div class="sunrise-sunset">
+                        <div class="item">
+                            <div class="icon">
+                                <img src="images/sunrise.jpeg" alt="" height="70" width="70" style="mix-blend-mode: difference;">
+                            </div>
+                            <div class="sunrise">
+                                <p>Sunrise</p>
+                                <h2>${sRiseTime}</h2>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <img src="images/sunset.jpeg" alt="" height="70" width="70" style="object-fit: cover;">
+                            </div>
+                            <div class="sunset">
+                                <p>Sunset</p>
+                                <h2>${sSetTime}</h2>
+                            </div>
+                        </div>
+                  </div>
+            `;
+
       }).catch(() => {
             alert('Failed to fetch current weather');
       });

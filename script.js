@@ -136,7 +136,6 @@ function getWeatherDetails(name, lat, lon, country, state){
             alert('Failed to fetch current weather');
       });
 
-
       fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
             let uniqueForecastDays = [];
             let fiveDaysForecast = data.list.filter(forecast => {

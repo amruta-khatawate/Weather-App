@@ -108,7 +108,9 @@ function getWeatherDetails(name, lat, lon, country, state){
                 </div>
             `;
             let {sunrise, sunset} = data.sys,
-            {timezone} = data,
+            {timezone, visibility} = data,
+            {humidity, pressure, feels_like} = data.main,
+            {speed} = data.wind,
             sRiseTime = moment.utc(sunrise, 'x').add(timezone, 'seconds').format('hh:mm A'),
             sSetTime = moment.utc(sunset, 'x').add(timezone, 'seconds').format('hh:mm A');
             sunriseCard.innerHTML = `
@@ -136,7 +138,10 @@ function getWeatherDetails(name, lat, lon, country, state){
                         </div>
                   </div>
             `;
-
+            humidityVal.innerHTML = `${humidity}%`;
+            pressureVal.innerHTML = `${pressure}hPa`;
+            visibilityVal.innerHTML = `${visibility / 1000}km`;
+            windspeedVal.innerHTML = `${speed}m/s`;
       }).catch(() => {
             alert('Failed to fetch current weather');
       });

@@ -107,6 +107,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                     <p><i class="fa-light fa-location-dot"></i> ${name}, ${country}</p>
                 </div>
             `;
+            
             let {sunrise, sunset} = data.sys,
             {timezone, visibility} = data,
             {humidity, pressure, feels_like} = data.main,

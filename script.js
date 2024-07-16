@@ -142,6 +142,7 @@ function getWeatherDetails(name, lat, lon, country, state){
             pressureVal.innerHTML = `${pressure}hPa`;
             visibilityVal.innerHTML = `${visibility / 1000}km`;
             windspeedVal.innerHTML = `${speed}m/s`;
+            feelslikeVal.innerHTML = `${(feels_like - 273.15).toFixed(2)}&deg;C`;
       }).catch(() => {
             alert('Failed to fetch current weather');
       });

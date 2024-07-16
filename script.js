@@ -5,6 +5,11 @@ currentWeatherCard = document.querySelectorAll('.weather-left .cards')[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast'),
 aqiCard = document.querySelectorAll('.highlights .cards')[0],
 sunriseCard = document.querySelectorAll('.highlights .cards')[1],
+humidityVal = document.getElementById('humidityVal'),
+pressureVal = document.getElementById('pressureVal'),
+visibilityVal = document.getElementById('visibilityVal'),
+windspeedVal = document.getElementById('windspeedVal'),
+feelslikeVal = document.getElementById('feelslikeVal'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){

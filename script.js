@@ -139,6 +139,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                         </div>
                   </div>
             `;
+            
             humidityVal.innerHTML = `${humidity}%`;
             pressureVal.innerHTML = `${pressure}hPa`;
             visibilityVal.innerHTML = `${visibility / 1000}km`;

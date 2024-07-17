@@ -1,5 +1,6 @@
 let cityInput = document.getElementById('city-input'),
 searchBtn = document.getElementById('searchBtn'),
+locationBtn = document.getElementById('locationBtn'),
 api_key = 'e520c3bc89f9ac64050f2437a75fb22f',
 currentWeatherCard = document.querySelectorAll('.weather-left .cards')[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast'),
@@ -210,4 +211,17 @@ function getCityCoordinates(){
       });
 }
 
+function getUserCoordinates(){
+      navigator.geolocation.getCurrentPosition(position => {
+            let{latitude, longitude} = position.coords;
+            let REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${api_key}`;
+
+            fetch(REVERSE_GEOCODING_URL).then(res => res.json()).then(data => {
+                  console.log(data);
+            }).catch(() => {
+                  alert('Failed to fetch user coordinates');
+            });
+      });
+}
 searchBtn.addEventListener('click', getCityCoordinates);
+locationBtn.addEventListener('click', getUserCoordinates);

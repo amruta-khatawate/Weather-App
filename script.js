@@ -10,6 +10,7 @@ pressureVal = document.getElementById('pressureVal'),
 visibilityVal = document.getElementById('visibilityVal'),
 windspeedVal = document.getElementById('windspeedVal'),
 feelslikeVal = document.getElementById('feelslikeVal'),
+hourlyForecastCard = document.querySelector('bottom-cards'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
@@ -150,6 +151,25 @@ function getWeatherDetails(name, lat, lon, country, state){
       });
 
       fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
+            let hourlyForecast = data.list;
+            hourlyForecastCard.innerHTML = '';
+            for (let i = 0; i < 7; i++) {
+                  let hrForecastDate = new Date(hourlyForecast[i].dt_txt);
+                  let hr = hrForecastDate.getHours();
+                  let a = 'PM';
+                  if(hr < 12) a = 'AM';
+                  if(hr == 0) hr = 12;
+                  if(hr > 12) hr = hr - 12;
+                  hourlyForecastCard.innerHTML += `
+                  <div class="cards">
+                        <div class="items">
+                              <p>6AM</p>
+                              <img src="https://openweathermap.org/img/wn/04d.png" alt="">
+                              <p>__&deg;C</p>
+                        </div>
+                  </div>
+                  `;
+            }
             let uniqueForecastDays = [];
             let fiveDaysForecast = data.list.filter(forecast => {
                   let forecastDate = new Date(forecast.dt_txt).getDate();

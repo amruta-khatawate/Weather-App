@@ -223,6 +223,5 @@ function getUserCoordinates(){
             });
       });
 }
-
 searchBtn.addEventListener('click', getCityCoordinates);
 locationBtn.addEventListener('click', getUserCoordinates);

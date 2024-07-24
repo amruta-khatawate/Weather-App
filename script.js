@@ -231,3 +231,4 @@ function getUserCoordinates(){
 }
 searchBtn.addEventListener('click', getCityCoordinates);
 locationBtn.addEventListener('click', getUserCoordinates);
+cityInput.addEventListener('keyup', e => e.key === 'Enter' && getCityCoordinates());

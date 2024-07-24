@@ -217,8 +217,9 @@ function getUserCoordinates(){
             let REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${api_key}`;
 
             fetch(REVERSE_GEOCODING_URL).then(res => res.json()).then(data => {
-                 let (name, country, state) = data[0];
-                 getWeatherDetails(name, latitude, longitude, country, state);
+            //      console.log(data);
+            let {name, country, state} = data[0];
+            getWeatherDetails(name, latitude, longitude, country, state);
             }).catch(() => {
                   alert('Failed to fetch user coordinates');
             });
